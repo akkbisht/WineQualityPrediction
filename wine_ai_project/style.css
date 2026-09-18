@@ -1,0 +1,267 @@
+
+        /* =========================================
+           PREMIUM "LUXE LIGHT" DESIGN SYSTEM
+           ========================================= */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+        :root {
+            --bg-color: #fcfcfc;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --accent-wine: #722F37; /* Elegant Burgundy */
+            --accent-gold: #D4AF37;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* =========================================
+           NAVIGATION
+           ========================================= */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--accent-wine);
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links button:hover, .nav-links button.active {
+            color: var(--accent-wine);
+        }
+
+        .nav-links .btn-primary {
+            background: var(--accent-wine);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+        }
+
+        .nav-links .btn-primary:hover {
+            background: #5a252c;
+            color: white;
+        }
+
+        /* =========================================
+           MAIN LAYOUT & VIEWS
+           ========================================= */
+        main {
+            flex: 1;
+            margin-top: 80px; /* Space for navbar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .view-section {
+            display: none;
+            width: 100%;
+            max-width: 1000px;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .view-section.active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =========================================
+           GLASSMORPHISM CONTAINERS
+           ========================================= */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--glass-shadow);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        .glass-card.wide {
+            max-width: 800px;
+        }
+
+        /* =========================================
+           TYPOGRAPHY & FORMS
+           ========================================= */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--accent-wine);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.8);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* =========================================
+           BUTTONS
+           ========================================= */
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: var(--accent-wine);
+            color: white;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #5a252c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(114, 47, 55, 0.2);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-wine);
+            border: 1px solid var(--accent-wine);
+            margin-top: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(114, 47, 55, 0.05);
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 14px;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* =========================================
+           RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            .nav-links { display: none; } /* In a full app, add a hamburger menu here */
+            h1 { font-size: 2.2rem; }
+            .glass-card { padding: 30px 20px; }
+            .grid-2 { grid-template-columns: 1fr; gap: 0; }
+        }
+   

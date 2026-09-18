@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vino AI | Premium Wine Analysis</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scrolling and basic resets */
+        html { scroll-behavior: smooth; }
+        
+        /* The base styling for nav links */
+        .nav-btn {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #6b7280; /* text-gray-500 */
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-btn:hover {
+            color: #111827; /* text-gray-900 */
+            background-color: #f3f4f6; /* bg-gray-100 */
+        }
+        
+        /* The styling applied by index.js when a page is active */
+        .nav-btn.active {
+            color: #be123c; /* text-rose-700 */
+            background-color: #fff1f2; /* bg-rose-50 */
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-50 to-rose-50/30 text-gray-900 font-sans antialiased min-h-screen flex flex-col selection:bg-rose-200 selection:text-rose-900">
+    
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/80 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <div class="cursor-pointer group flex items-center gap-2" onclick="window.routeTo('home')">
+                    <div class="w-8 h-8 bg-gradient-to-br from-gray-900 to-gray-700 text-white rounded-xl flex items-center justify-center font-serif font-bold text-lg shadow-md group-hover:scale-105 transition-transform">V</div>
+                    <span class="font-serif text-2xl font-black tracking-tighter text-gray-900">VINO<span class="text-rose-700">.</span>AI</span>
+                </div>
+
+                <div class="flex items-center gap-1 md:gap-3 nav-links">
+                    <button onclick="window.routeTo('home')" id="nav-home" class="nav-btn active">Home</button>
+                    <button onclick="window.routeTo('predictor')" id="nav-predictor" class="nav-btn">Predictor</button>
+                    <button onclick="window.routeTo('history')" id="nav-history" class="nav-btn" style="display: none;">My History</button>
+                    
+                    <div class="w-px h-6 bg-gray-200 mx-2 hidden sm:block"></div> 
+                    
+                    <button onclick="window.routeTo('login')" id="nav-login" class="text-sm font-bold text-gray-500 hover:text-gray-900 px-4 py-2 transition-colors">Log In</button>
+                    <button onclick="window.routeTo('signup')" id="nav-signup" class="text-sm font-bold text-white bg-gray-900 hover:bg-rose-800 px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 ml-1">Sign Up</button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <main id="app" class="flex-grow w-full px-4 sm:px-6 lg:px-8 pt-8"></main>
+
+    <footer class="mt-auto border-t border-gray-200 bg-white/50 py-10 text-center">
+        <div class="flex items-center justify-center gap-2 text-gray-400 font-serif mb-2">
+            <div class="w-5 h-5 bg-gray-200 rounded-md flex items-center justify-center text-xs font-bold text-gray-500">V</div>
+        </div>
+        <p class="text-sm font-medium text-gray-400 mb-4">&copy; 2026 Vino AI. Premium AI Architectures.</p>
+        
+       
+    </footer>
+
+    <script type="module" src="js/index.js"></script>
+</body>
+</html>
